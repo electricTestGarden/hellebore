@@ -1,0 +1,36 @@
+---
+import type { CollectionEntry} from "astro:content";
+import BaseLayout from "./baseLayout.astro";
+import ComicNavigation from '../components/comicNavigation.astro';
+import ComicBlog from '../components/comicBlog.astro';
+import ComicScripts from '../components/comicScripts.astro';
+import { comicImageBasePath } from "../utils";
+
+const { frontmatter, comicOverride } = Astro.props;
+const comic = comicOverride ? comicOverride : frontmatter; 
+
+const comicSrc = comicImageBasePath + comic.imageFile;
+---
+
+<BaseLayout pageTitle={comic.title} comicSlug={comic.slug}>
+    <main id="primary" class="site-main">
+        <article class="post">
+            <div class="comic-wrapper">
+                <div class="comic">
+                    <div class="post-thumbnail">
+                        <img
+                            width="770"
+                            height="996"
+                            src={comicSrc}
+                            alt=""
+                            decoding="async"
+                        />
+                    </div>
+                </div>
+            </div>
+        </article>
+        <ComicNavigation comic={comic} />
+        <ComicBlog comic={comic}><slot/></ComicBlog> 
+        <ComicScripts />
+    </main>
+</BaseLayout>

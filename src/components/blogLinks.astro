@@ -1,0 +1,4 @@
+---
+const { type, links } = Astro.props;
+---
+{ links.map((data: string) => <a href={"/comic/" + type + "/" + data.toLowerCase().replaceAll(" ", "-")} rel={type}>{data}</a>) }

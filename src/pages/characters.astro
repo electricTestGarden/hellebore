@@ -1,0 +1,11 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from "../layouts/pageLayout.astro";
+import Character from "../components/character.astro";
+
+const characters = await getCollection('characters');
+---
+
+<PageLayout titleOverride="Characters">
+    {characters.map((character) => <Character character={character}/>)}
+</PageLayout>

@@ -1,0 +1,22 @@
+@use "variables";
+
+.character {
+    display: flex;
+    &__image {
+        margin-right: 20px;
+        flex-shrink: 0;
+    }
+    &__description {
+        h3 {
+            margin-top: 0;
+        }
+    }
+}
+
+.archive {
+    a {
+        img {
+            border: 1px solid variables.$medium-grey;
+        }
+    }
+}

@@ -1,0 +1,23 @@
+---
+import BaseLayout from "./baseLayout.astro";
+
+const { frontmatter, titleOverride } = Astro.props;
+
+const pageTitle = titleOverride ? titleOverride : frontmatter.title; 
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <main id="primary" class="site-main page">
+		
+        <article class="page type-page status-publish hentry">
+            <header class="entry-header">
+                <h1 class="entry-title">{pageTitle}</h1>	
+            </header>
+            
+            <div class="entry-content">
+                <slot />                
+            </div>
+        
+        </article>
+    </main>
+</BaseLayout>

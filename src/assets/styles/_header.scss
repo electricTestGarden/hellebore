@@ -1,0 +1,79 @@
+@use "variables";
+
+.site-header {
+    .site-branding {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: variables.$dark-purple;
+        padding: 0 20px;
+    }
+    #site-navigation {
+        z-index: 1000;
+        .menu-toggle {
+            display: inline-block;
+            margin: 15px;
+            font-family: variables.$anton;
+            color: variables.$lightest-purple;
+            border: 0 transparent;
+            background-color: transparent;
+            text-transform: lowercase;
+            font-size: 2em;
+            padding: 0;
+            &:hover {
+                color: variables.$medium-purple;
+            }
+            &:hover, &:focus, &:active {
+                border: 0 transparent;
+                outline: 0 transparent;
+            }
+        }
+    }
+    .main-navigation {
+        background-color: variables.$light-purple;
+
+        .menu-primary-container {
+            display: flex;
+            background-color: variables.$light-purple;
+
+            ul.menu {
+                margin-bottom: 20px;
+                margin-left: 30px;
+                li {
+                    margin-right: 10px;
+                }
+                li:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+
+        a {
+            font-family: variables.$anton;
+            font-size: 1.8em;
+            color: variables.$lightest-purple;
+            text-transform: lowercase;
+            &:hover {
+                color: variables.$medium-purple;
+            }
+        }
+
+        .current-menu-item a {
+            color: variables.$medium-purple;
+        }
+    }
+    @media screen and (min-width: variables.$tablet) {
+        #site-navigation .menu-toggle {
+            display: none;
+        } 
+        .main-navigation .menu-primary-container {
+            background-color: transparent;
+            justify-content: center;
+            ul.menu {
+                display: inline-flex;
+                margin-bottom: 0;
+                margin-left: 0;
+            }
+        }
+    }
+}

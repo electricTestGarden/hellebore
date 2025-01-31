@@ -1,0 +1,19 @@
+---
+const menu = [
+  { text: "Home", path: "/" },
+  { text: "About", path: "/about" },
+  { text: "Characters", path: "/characters" },
+  { text: "Shop", path: "", target: "_blank" },
+  { text: "Archive", path: "/archive" },
+];
+---
+
+<nav id="site-navigation" class="main-navigation">
+    <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">Menu</button>
+    <div class="menu-primary-container">
+        <!-- TODO: current-menu-item -->
+        <ul id="primary-menu" class="menu">
+            { menu.map((data) => <li class="menu-item"><a href={data.path} target={data.target || "_self"}>{data.text}</a></li>)}
+        </ul>
+    </div>
+</nav>

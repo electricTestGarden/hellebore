@@ -1,0 +1,54 @@
+@use "variables";
+
+#page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+.admin-bar #page {
+  min-height: calc(100vh - 32px);
+}
+
+.hidden {
+  display: none;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.admin-bar .sticky {
+  top: 32px;
+}
+
+@media only screen and (max-width: 782px) { 
+  .admin-bar #page {
+    min-height: calc(100vh - 46px);
+  }
+
+  .admin-bar .sticky {
+    top: 0;
+  }
+}
+
+.hide-small {
+  display: none;
+}
+
+@media screen and (min-width: variables.$tablet) {
+  .hide-small {
+    display: inline;
+  } 
+}
+
+a, a:visited {
+  color: variables.$medium-purple; 
+ 
+  &:hover {
+    color: variables.$lightest-purple; 
+  }
+}

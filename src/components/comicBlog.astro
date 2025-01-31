@@ -1,0 +1,41 @@
+---
+import BlogLinks from './blogLinks.astro';
+const { comic } = Astro.props;
+
+const formattedDate = new Date(comic.pubDate).toLocaleDateString('en-US', {month: "long", day: "numeric", year: "numeric"});
+const tagLinks = comic.tags.map((data: string) => `<a href="/character/" + ${data.toLowerCase()} rel="tag">${data}</a>`);
+
+---
+
+<section class="blog">
+    <div class="blog-wrapper">
+        <header class="entry-header">
+            <h1 class="entry-title">{comic.title}</h1>
+            <div class="entry-meta">
+                <span class="posted-on">
+                    {formattedDate}
+                </span>
+            </div>
+        </header>
+
+        <div class="entry-content">
+            <p>
+               {comic.post} 
+            </p>
+        </div>
+
+        <footer class="entry-footer">
+            <span class="tags-links">
+                Tags: <BlogLinks type="tag" links={comic.tags} /> 
+            </span>
+            <span class="characters-links">
+                Characters: <BlogLinks type="character" links={comic.characters}/> 
+            </span>
+            <a id="transcript-link" href="#">Transcript →</a>
+            <div id="transcript" class="hidden">
+                <h4>Comic Transcript</h4>
+                <slot /> 
+            </div>
+        </footer>
+    </div>
+</section>

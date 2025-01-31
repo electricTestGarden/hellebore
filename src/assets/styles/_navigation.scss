@@ -1,0 +1,45 @@
+@use "mixins";
+@use "variables";
+
+.navigation {
+    display: flex;
+    justify-content: center;
+
+    .navigation-wrapper {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    div {
+        display: inline-flex;
+        padding: 5px 0;
+    }
+
+    a {
+        text-decoration: none;
+        display: inline-flex;
+        &:hover {
+            .arrow-innards {
+                fill: variables.$medium-purple;
+            }
+        }
+    }
+
+    span {
+        display: inline-flex;
+    }
+
+    .next, .latest {
+        svg {
+            @include mixins.prefix(transform, scaleX(-1));
+        }
+    }
+
+    .disabled {
+        pointer-events: none;
+        cursor: default;
+        svg {
+            opacity: .5;
+        }
+    }
+}
