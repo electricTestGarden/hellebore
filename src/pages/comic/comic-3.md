@@ -1,14 +1,15 @@
 ---
 layout: ../../layouts/comicLayout.astro
-title: 'Drinks with a Friend'
-slug: 'drinks-with-a-friend'
-pubDate: 2013-05-18
-description: 'Drinks with a Friend'
-imageFile: 'drinks-with-a-friend.png'
+title: 'Finale'
+slug: 'comic-3'
+pubDate: 2025-01-03 
+description: 'Finale'
+imageFile: 'finale.png'
 tags: []
-characters: ["Ada", "Sierra"]
-prevComic: '' 
-nextComic: 'profiles-are-hard'
-post: ''
+characters: ["Kathleen", "You!"]
+post: 'This is the third blog post'
 ---
+
+## Panel 1
+This is a description of what's going on in panel 1
 

@@ -7,6 +7,7 @@ export default defineConfig({
     schema: {
         COMIC_NAME: envField.string({ context: "client", access: "public", default: "YOUR COMIC"}), 
         SHOP_LINK: envField.string({ context: "client", access: "public", default: ""}), 
+        COPYRIGHT_START: envField.string({ context: "client", access: "public", default: "1999"}), 
     }
   }
 })
