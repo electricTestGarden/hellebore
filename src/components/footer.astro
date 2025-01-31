@@ -1,8 +1,9 @@
 ---
 /**
  * The template for displaying the footer
- * Contains the closing of the #content div and all content after
  */
+const copyrightStart = import.meta.env.COPYRIGHT_START;
+const comicName = import.meta.env.COMIC_NAME;
 const menu = [
   { text: "Home", path: "/" },
   { text: "About", path: "/about" },
@@ -46,7 +47,7 @@ const year = new Date().toLocaleDateString('en-US', { year: 'numeric' });
         </div>
     </div>
     <div class="copyright">
-        <p>© 2013 - {year} Your Comic</p>
+        <p>© {copyrightStart} - {year} {comicName}</p>
     </div>
 </footer><!-- #colophon -->
 <!-- #page -->

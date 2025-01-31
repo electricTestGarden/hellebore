@@ -12,8 +12,6 @@ const comics = defineCollection({
     characters: z.array(z.string()),
     post: z.string(),
     slug: z.string(),
-    nextComic: z.string(),
-    prevComic: z.string(),
   })
 });
 
