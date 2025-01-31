@@ -7,6 +7,7 @@ import { getNextComic, getPrevComic } from "../utils";
  */
 import '../assets/styles/main.scss';
 const { pageTitle, comicSlug } = Astro.props;
+const comicName = import.meta.env.COMIC_NAME;
 
 const prevComic = await getPrevComic(comicSlug);
 const nextComic = await getNextComic(comicSlug);
@@ -18,7 +19,7 @@ const nextComic = await getNextComic(comicSlug);
     <meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-	<title>Your Comic - {pageTitle}</title>
+	<title>{import.meta.env.COMIC_NAME} - {pageTitle}</title>
 
 	<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
 	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
