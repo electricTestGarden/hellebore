@@ -1,0 +1,19 @@
+@use "variables";
+
+section.comments {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: variables.$white;
+
+    #disqus_thread {
+        width: 800px;
+    }
+
+    @media (max-width: variables.$tablet) {
+        #disqus_thread {
+            padding: 0 20px; 
+        }
+    }
+
+}

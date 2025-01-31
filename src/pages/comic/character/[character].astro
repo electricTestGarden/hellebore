@@ -1,0 +1,29 @@
+---
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import ArchiveLayout from '../../../layouts/archiveLayout.astro';
+
+export async function getStaticPaths() {
+    const allComicPosts = await getCollection('comics');
+    const allCharacters = allComicPosts.reduce((acc, curr) => acc.concat(curr.data.characters), [] as string[]);
+
+    return allCharacters.map((currTag: string) => {
+        return {
+            params: { character: currTag.toLowerCase().replaceAll(" ", "-")},
+        };
+    });
+    
+}
+
+const { character } = Astro.params;
+const title = character.replaceAll("-", " ");
+const allComicPosts = await getCollection('comics');
+
+const comicHasCharacter= (comic: CollectionEntry<'comics'>, title: string) => {
+    return comic.data.characters.map((a: string) => a.toLowerCase() ).includes(title);
+}
+
+const comics = allComicPosts.filter((comic) => comicHasCharacter(comic, title));
+---
+
+<ArchiveLayout comics={comics} titleOverride={"Character: " + character.replaceAll("-", " ")}>

@@ -1,0 +1,12 @@
+---
+import { render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import { getFirstComic } from '../utils';
+import ComicLayout from '../layouts/comicLayout.astro';
+
+const mostRecentComic: CollectionEntry<'comics'> = await getFirstComic(); 
+
+const { Content }  = await render(mostRecentComic);
+---
+
+<ComicLayout comicOverride={mostRecentComic.data}><Content /></ComicLayout>

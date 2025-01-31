@@ -1,0 +1,19 @@
+---
+import { characterBasePath, characterImageBasePath } from "../utils"; 
+const { character } = Astro.props;
+
+const tagPageUrl = characterBasePath + character.id;
+const imageUrl = characterImageBasePath + character.data.imageFile;
+const altText = `A drawn image of the character ${character.id}`;
+---
+<div class="character">
+    <div class="character__image">
+        <a href={tagPageUrl}>
+            <img src={imageUrl} alt={altText}>				
+        </a>
+    </div>
+    <div class="character__description">
+        <h3><a href={tagPageUrl}>{character.data.name}</a></h3>
+        <p>{character.data.description}</p>
+    </div>
+</div>

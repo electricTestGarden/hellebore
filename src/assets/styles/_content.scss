@@ -1,0 +1,103 @@
+@use "variables";
+
+main {
+    background-color: variables.$taupe;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &.hoverright {
+        background: linear-gradient(to right, variables.$dark-taupe, variables.$taupe);
+        cursor: pointer;
+    }
+    &.hoverleft {
+        background: linear-gradient(to right, variables.$taupe, variables.$dark-taupe);
+        cursor: pointer;
+    }
+    
+    article {
+        padding-top: 20px;
+        max-width: 770px;
+    }
+
+    section.navigation {
+        display: flex;
+        background-color: variables.$dark-purple;
+        width: 100%;
+        
+        .navigation-wrapper {
+            width: 800px;
+        }
+    } 
+    
+    section.blog {
+        display: flex;
+        justify-content: center;
+        background-color: variables.$white;
+        width: 100%;
+
+        .blog-wrapper {
+            width:800px;
+            margin: 10px;
+            margin-bottom: 25px;
+        }
+
+        .entry-content {
+            margin-top: 0;
+        }
+
+        .entry-title {
+            color: variables.$medium-purple; 
+            margin-bottom: 0;
+        }
+
+        .entry-meta {
+            color: variables.$grey; 
+            margin-top: -2px;
+            margin-left: 3px;
+        }
+
+        .entry-footer {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #transcript {
+            margin-left: 30px;
+            h5 {
+                margin-bottom: 0;
+            }
+        }
+
+    }
+
+    @media (max-width: variables.$tablet) {
+        section.blog {
+            padding: 0 20px;
+        }   
+
+        article {
+            padding: 20px 20px 0 20px;
+        }
+    }
+
+    @media (max-width: variables.$mobile) {
+        section.blog {
+            padding: 0 10px;
+        }   
+
+        article {
+            padding: 10px 10px 0 10px;
+        }
+    }
+
+
+}
+
+.page, .archive {
+    article {
+        margin: 1.5em 0;
+        background-color: variables.$white;
+        padding: 20px;
+    }
+
+}

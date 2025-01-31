@@ -1,0 +1,9 @@
+---
+import { getCollection } from 'astro:content';
+import ArchiveLayout from '../layouts/archiveLayout.astro';
+
+const allComicPosts = await getCollection('comics');
+
+const comics = allComicPosts.sort((a, b) => new Date(a.data.pubDate).valueOf() - new Date(b.data.pubDate).valueOf());
+---
+<ArchiveLayout comics={comics} titleOverride="Archive" />

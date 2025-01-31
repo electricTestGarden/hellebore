@@ -1,0 +1,42 @@
+---
+import FirstPostSvg from "../svgs/firstPost.astro";
+import PreviousPostSvg from "../svgs/previousPost.astro";
+import NextPostSvg from "../svgs/nextPost.astro";
+import LatestPostSvg from "../svgs/latestPost.astro";
+
+import { isFirstComic, isLastComic, getNextComic, getPrevComic, getLastComic } from "../utils";
+import { getFirstComic } from "../utils";
+
+const { comic } = Astro.props;
+
+const isFirst = await isFirstComic(comic.slug);
+const isLast = await isLastComic(comic.slug); 
+
+const firstClasses = isFirst ? "first disabled" : "first";
+const firstHref = isFirst ? "" : "/comic/" + (await getFirstComic())?.data.slug;
+
+const prevClasses = isFirst ? "prev disabled" : "prev";
+const prevHref = isFirst ? "" : "/comic/" + (await getPrevComic(comic.slug))?.data.slug;
+
+const nextClasses = isLast ? "next disabled" : "next";  
+const nextHref = isLast ? "" : "/comic/" + (await getNextComic(comic.slug))?.data.slug;
+
+const latestClasses = isLast ? "latest disabled" : "latest";
+const latestHref = isLast ? "" : (await getLastComic())?.data.slug;
+---
+<section class="navigation" title="Previous Comic">
+    <div class="navigation-wrapper" title="Next Comic">
+        <div>
+            <a class={firstClasses} href={firstHref} >
+                <FirstPostSvg/>
+            </a>
+            <a class={prevClasses} href={prevHref} rel="prev" >
+                <PreviousPostSvg/>
+            </a>
+        </div>
+        <div>
+            <a class={nextClasses} href={nextHref}><NextPostSvg/></a>
+            <a class={latestClasses} href={latestHref}><LatestPostSvg/></a>
+        </div>
+    </div>
+</section>

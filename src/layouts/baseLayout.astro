@@ -1,0 +1,26 @@
+---
+import Header from '../components/header.astro';
+import Footer from '../components/footer.astro';
+import Navigation from '../components/navigation.astro';
+
+const { pageTitle, comicSlug } = Astro.props;
+
+---
+<Header pageTitle={pageTitle} comicSlug: {comicSlug} />
+<div id="page" class="site">
+	<a class="skip-link screen-reader-text" href="#primary">Skip to content</a>
+
+	<header id="masthead" class="site-header">
+		<div class="site-branding">
+				<h1 class="site-title">
+                    <a href="" rel="home">
+                        <img src="/assets/images/logo.png" width="1000" height="123" alt="" srcset="https://www.manifolddestiny.com/wp-content/uploads/2020/08/manifold-destiny-logo-medium.png 1000w, https://www.manifolddestiny.com/wp-content/uploads/2020/08/manifold-destiny-logo-medium-300x37.png 300w, https://www.manifolddestiny.com/wp-content/uploads/2020/08/manifold-destiny-logo-medium-768x94.png 768w" sizes="(max-width: 1000px) 100vw, 1000px" decoding="async" fetchpriority="high">
+                    </a>
+                </h1>
+		</div><!-- .site-branding -->
+        <Navigation/>
+
+	</header><!-- #masthead -->
+
+    <slot />
+<Footer />
