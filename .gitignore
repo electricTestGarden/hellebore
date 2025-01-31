@@ -17,8 +17,14 @@ pnpm-debug.log*
 .env
 .env.production
 
+# git config
+.gitconfig
+
 # macOS-specific files
 .DS_Store
 
 # jetbrains setting folder
 .idea/
+
+# vim files
+*~
