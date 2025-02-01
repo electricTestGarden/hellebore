@@ -30,12 +30,12 @@ const latestHref = isLast ? "" : (await getLastComic())?.data.slug;
             <a class={firstClasses} href={firstHref} >
                 <FirstPostSvg/>
             </a>
-            <a class={prevClasses} href={prevHref} rel="prev" >
+            <a id="prev-comic" class={prevClasses} href={prevHref} rel="prev" >
                 <PreviousPostSvg/>
             </a>
         </div>
         <div>
-            <a class={nextClasses} href={nextHref}><NextPostSvg/></a>
+            <a id="next-comic" class={nextClasses} href={nextHref}><NextPostSvg/></a>
             <a class={latestClasses} href={latestHref}><LatestPostSvg/></a>
         </div>
     </div>
