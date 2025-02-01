@@ -7,8 +7,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "setup-example-pages": "shx cp example/pages/* src/pages",
-    "setup-example-comics": "shx cp example/pages/comic/* src/pages/comic"
+    "setup-examples": "shx cp -f example/pages/about.md src/pages/about.md && shx cp -f example/pages/comic/* src/pages/comic",
+    "cleanup-examples": "shx rm -f src/pages/comic/comic-1.md && shx rm -f src/pages/comic/comic-2.md && shx rm -f src/pages/comic/comic-3.md && shx rm -f src/pages/about.md"
   },
   "dependencies": {
     "astro": "^5.1.9"
