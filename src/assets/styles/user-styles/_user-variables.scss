@@ -1,0 +1,24 @@
+@use '../variables';
+
+// Colors
+variables.$white: #fff;
+variables.$taupe: #28671f;
+$dark-taupe: #a7a3a3;
+
+$black: #000;
+$dark-grey: #4E4E4E;
+$medium-grey: #767676;
+$grey: #c7bfbf;
+
+$dark-purple: #31364c;
+$light-purple: #473f6c;
+$medium-purple: #4e28af;
+$lightest-purple: #afa0d3;
+
+// Fonts
+$anton: Anton,sans-serif;
+$source-sans: "Source Sans Pro",Arial,sans-serif;
+
+// Breakpoints
+$tablet: 37.5em;
+$mobile: 27.5em;
