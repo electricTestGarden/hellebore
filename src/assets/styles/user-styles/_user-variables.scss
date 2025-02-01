@@ -1,24 +1,30 @@
 @use '../variables';
 
+/**
+ * USER VARIABLES
+ * 
+ * Uncomment a line and change the value to override the default theme variables
+ */
+
 // Colors
-variables.$white: #fff;
-variables.$taupe: #28671f;
-$dark-taupe: #a7a3a3;
+//variables.$white: #fff;
+//variables.$taupe: #28671f;
+//variables.$dark-taupe: #a7a3a3;
 
-$black: #000;
-$dark-grey: #4E4E4E;
-$medium-grey: #767676;
-$grey: #c7bfbf;
+//variables.$black: #000;
+//variables.$dark-grey: #4E4E4E;
+//variables.$medium-grey: #767676;
+//variables.$grey: #c7bfbf;
 
-$dark-purple: #31364c;
-$light-purple: #473f6c;
-$medium-purple: #4e28af;
-$lightest-purple: #afa0d3;
+//variables.$dark-purple: #31364c;
+//variables$light-purple: #473f6c;
+//variables.$medium-purple: #4e28af;
+//variables.$lightest-purple: #afa0d3;
 
 // Fonts
-$anton: Anton,sans-serif;
-$source-sans: "Source Sans Pro",Arial,sans-serif;
+//variables.$anton: Anton,sans-serif;
+//variables.$source-sans: "Source Sans Pro",Arial,sans-serif;
 
 // Breakpoints
-$tablet: 37.5em;
-$mobile: 27.5em;
+//variables.$tablet: 37.5em;
+//variables.$mobile: 27.5em;
