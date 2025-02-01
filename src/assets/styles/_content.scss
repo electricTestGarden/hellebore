@@ -59,6 +59,22 @@ main {
         .entry-footer {
             display: flex;
             flex-direction: column;
+
+            .tags-links ul, .characters-links ul {
+                display: inline;
+                list-style: none;
+                padding-left: 0;
+                margin: 0;
+                li {
+                    display: inline;
+                }
+                li:after {
+                    content: ", ";
+                }
+                li:last-child:after {
+                    content: "";
+                }
+            }
         }
 
         #transcript {
