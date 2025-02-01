@@ -8,6 +8,8 @@ export default defineConfig({
         COMIC_NAME: envField.string({ context: "client", access: "public", default: "YOUR COMIC"}), 
         SHOP_LINK: envField.string({ context: "client", access: "public", default: ""}), 
         COPYRIGHT_START: envField.string({ context: "client", access: "public", default: "1999"}), 
+        FOOTER_IMAGE_PATH: envField.string({ context: "client", access: "public", default: "/assets/images/your-image.png"}), 
+        FOOTER_IMAGE_ALT_TEXT: envField.string({ context: "client", access: "public", default: "A fun footer image. This is a default description. Please update this for accessibiltiy!"}), 
     }
   }
 })

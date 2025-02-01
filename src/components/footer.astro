@@ -20,6 +20,8 @@ const followMenu = [
 ];
 
 const year = new Date().toLocaleDateString('en-US', { year: 'numeric' });
+const footerImagePath = import.meta.env.FOOTER_IMAGE_PATH;
+const footerImageAltText = import.meta.env.FOOTER_IMAGE_ALT_TEXT; 
     
 ---
 
@@ -41,8 +43,8 @@ const year = new Date().toLocaleDateString('en-US', { year: 'numeric' });
         </div>
         <div class="site-footer__menu-column hide-small">
             <img
-                alt="Footer image alt text goes here!"
-                src="/assets/images/chairs.png"
+                alt={footerImageAltText}
+                src={footerImagePath}
             />
         </div>
     </div>
