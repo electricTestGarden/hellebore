@@ -1,14 +1,14 @@
 [
     { 
-        "name": "Ada", 
-        "description": "Our intrepid hero. Has the power to perfectly physically replicate any object, but only for a short time. New to this whole ‘adversary’ business.",
+        "name": "Kathleen", 
+        "description": "dat dat dat some info",
         "imageFile": "ada-profile.png",
-        "id": "ada"
+        "id": "kathleen"
     },
     {
-        "name": "Rory",
-        "description": "A new friend of Ada’s. They met at a villain meetup group, and Rory decided to take Ada under her wing. Rory is a professional violinist/thief with vocal powers.",
+        "name": "You",
+        "description": "Our intrepid comics adventurerer",
         "imageFile": "rory.png",
-        "id": "rory"
+        "id": "you"
     }
 ]
