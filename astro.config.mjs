@@ -1,6 +1,8 @@
 // @ts-check
 import { defineConfig, envField } from 'astro/config';
 
+import compress from "astro-compress";
+
 // https://astro.build/config
 export default defineConfig({
   env: {
@@ -11,5 +13,18 @@ export default defineConfig({
         FOOTER_IMAGE_PATH: envField.string({ context: "client", access: "public", default: "/assets/images/your-image.png"}), 
         FOOTER_IMAGE_ALT_TEXT: envField.string({ context: "client", access: "public", default: "A fun footer image. This is a default description. Please update this for accessibiltiy!"}), 
     }
-  }
+  },
+  vite: {
+    build: {
+        minify: true,
+        cssMinify: true,
+        rollupOptions: {
+          output: {
+            manualChunks: () => 'main',
+            entryFileNames: 'assets/js/keydown-handling.js',
+          },
+        },
+    }
+  },
+  integrations: [compress()]
 })
