@@ -1,4 +1,7 @@
 ---
+import HelpPopup from "./helpPopup.astro";
+import Scripts from "./scripts.astro";
+
 /**
  * The template for displaying the footer
  */
@@ -54,12 +57,6 @@ const footerImageAltText = import.meta.env.FOOTER_IMAGE_ALT_TEXT;
 </footer><!-- #colophon -->
 <!-- #page -->
 
-<div id="help-popup" class="hidden">
-    Help
-</div>
+<HelpPopup/>
 
-<script src="../assets/js/sticky-nav.js" />
-<script src="../assets/js/navigation.js" />
-<script src="../assets/js/skip-link-focus-fix.js" />
-<script src="../assets/js/keydown-handling.js" />
-<script src="../assets/js/touch-handling.js" />
+<Scripts/>
