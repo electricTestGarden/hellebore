@@ -18,12 +18,6 @@ export default defineConfig({
     build: {
         minify: true,
         cssMinify: true,
-        rollupOptions: {
-          output: {
-            manualChunks: () => 'main',
-            entryFileNames: 'assets/js/keydown-handling.js',
-          },
-        },
     }
   },
   integrations: [compress()]

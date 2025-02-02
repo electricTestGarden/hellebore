@@ -1,29 +1,47 @@
 ---
-import { getCollection } from 'astro:content';
-import type { CollectionEntry } from 'astro:content';
-import ArchiveLayout from '../../../layouts/archiveLayout.astro';
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import ArchiveLayout from "../../../layouts/archiveLayout.astro";
+import { characterImageBasePath } from "../../../utils";
 
 export async function getStaticPaths() {
-    const allComicPosts = await getCollection('comics');
-    const allCharacters = allComicPosts.reduce((acc, curr) => acc.concat(curr.data.characters), [] as string[]);
+    const allComicPosts = await getCollection("comics");
+    const allCharacters = allComicPosts.reduce(
+        (acc, curr) => acc.concat(curr.data.characters),
+        [] as string[],
+    );
 
     return allCharacters.map((currTag: string) => {
         return {
-            params: { character: currTag.toLowerCase().replaceAll(" ", "-")},
+            params: { character: currTag.toLowerCase().replaceAll(" ", "-") },
         };
     });
-    
 }
 
 const { character } = Astro.params;
 const title = character.replaceAll("-", " ");
-const allComicPosts = await getCollection('comics');
+const allComicPosts = await getCollection("comics");
+const characterCollection = await getCollection("characters");
 
-const comicHasCharacter= (comic: CollectionEntry<'comics'>, title: string) => {
-    return comic.data.characters.map((a: string) => a.toLowerCase() ).includes(title);
-}
+const comicHasCharacter = (comic: CollectionEntry<"comics">, title: string) => {
+    return comic.data.characters
+        .map((a: string) => a.toLowerCase())
+        .includes(title);
+};
 
 const comics = allComicPosts.filter((comic) => comicHasCharacter(comic, title));
+const currentCharacter = characterCollection.filter(
+    (char) => char.data.id === character,
+)[0];
+const image = {
+    path: characterImageBasePath + currentCharacter.data.imageFile,
+    alt: `An image of the character ${currentCharacter.data.name}`,
+};
 ---
 
-<ArchiveLayout comics={comics} titleOverride={"Character: " + character.replaceAll("-", " ")}>
+<ArchiveLayout
+    comics={comics}
+    image={image}
+    description={currentCharacter.data.description}
+    titleOverride={"Character: " + character.replaceAll("-", " ")}
+/>

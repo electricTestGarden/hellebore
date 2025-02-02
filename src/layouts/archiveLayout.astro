@@ -2,12 +2,16 @@
 import PageLayout from "./pageLayout.astro";
 import ArchiveComic from "../components/archiveComic.astro";
 
-const { comics, titleOverride } = Astro.props;
+const { comics, titleOverride, image, description } = Astro.props;
 // Not fully happy with comic type as object here but we takes what we can gets
 ---
 
 <PageLayout titleOverride={titleOverride}>
     <div class="archive">
+        <div class="archive__info">
+        { image && <img src={image.path} alt={image.alt} /> }
+        { description && <span>{description}</span> } 
+        </div>
         { comics.map((comic: object) => <ArchiveComic comic={comic} />) }
     </div>
 </PageLayout>
