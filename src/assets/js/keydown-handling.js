@@ -1,8 +1,15 @@
+import { closeHelpPopup, openHelpPopup } from "./util";
+
 document.addEventListener("DOMContentLoaded", function () {
     addEventListener("keydown", (event) => {
         switch (event.key) {
             case 'h': 
-                document.getElementById('help-popup').classList.remove('hidden'); 
+                const helpPopup = document.getElementById('help-popup');
+                if (helpPopup.classList.contains('hidden')) {
+                    openHelpPopup();
+                } else {
+                    closeHelpPopup();
+                }
                 break;
             case 'ArrowLeft':
                 document.getElementById('prev-comic').click();
