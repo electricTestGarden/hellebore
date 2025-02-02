@@ -2,13 +2,18 @@
   "name": "manifold-destiny",
   "type": "module",
   "version": "0.0.1",
+  "license": "MIT",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "setup-examples": "shx cp -f example/pages/about.md src/pages/about.md && shx cp -f example/pages/comic/* src/pages/comic",
-    "cleanup-examples": "shx rm -f src/pages/comic/comic-1.md && shx rm -f src/pages/comic/comic-2.md && shx rm -f src/pages/comic/comic-3.md && shx rm -f src/pages/about.md"
+    "setup:examples": "yarn setup:pages && yarn setup:comics",
+    "cleanup:examples": "yarn cleanup:pages && yarn cleanup:comics",
+    "setup:pages": "shx cp -f example/pages/about.md src/pages/about.md",
+    "setup:comics": "shx cp -f example/pages/comic/* src/pages/comic",
+    "cleanup:pages": "shx rm -f src/pages/about.md",
+    "cleanup:comics": "shx rm -f src/pages/comic/*"
   },
   "dependencies": {
     "astro": "^5.1.9",
