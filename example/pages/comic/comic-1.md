@@ -7,7 +7,7 @@ description: 'What is this theme?'
 imageFile: 'what-is-this.jpg'
 tags: ["astro", "web dev"]
 characters: ["Kathleen"]
-post: 'This is the blog post for the first comic. It is all in plain text'
+post: 'This is the blog post for the first comic. It is mostly in plain text, but can use some markdown. <a href="https://example.com">This is a link for instance</a>'
 ---
 
 This is the transcript for the first comic. 
