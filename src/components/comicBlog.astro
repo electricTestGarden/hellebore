@@ -2,7 +2,7 @@
 import BlogLinks from './blogLinks.astro';
 const { comic } = Astro.props;
 
-const formattedDate = new Date(comic.pubDate).toLocaleDateString('en-US', {month: "long", day: "numeric", year: "numeric"});
+const formattedDate = new Date(comic.pubDate).toLocaleString('en-US', { timeZone: 'UTC', month: "long", day: "numeric", year: "numeric"});
 ---
 
 <section class="blog">
