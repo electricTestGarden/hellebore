@@ -8,6 +8,7 @@ export default defineConfig({
   env: {
     schema: {
         COMIC_NAME: envField.string({ context: "client", access: "public", default: "YOUR COMIC"}), 
+        COMIC_DESCRIPTION: envField.string({ context: "client", access: "public", default: ""}), 
         SHOP_LINK: envField.string({ context: "client", access: "public", default: ""}), 
         COPYRIGHT_START: envField.string({ context: "client", access: "public", default: "1999"}), 
         FOOTER_IMAGE_PATH: envField.string({ context: "client", access: "public", default: "/assets/images/your-image.png"}), 

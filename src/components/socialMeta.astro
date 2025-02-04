@@ -1,0 +1,20 @@
+---
+const { props } = Astro.props;
+const { pageTitle, comic } = props;
+const comicName = import.meta.env.COMIC_NAME;
+
+const title = comicName ? comicName + " - " + pageTitle : pageTitle;
+const description = comic.post || import.meta.env.COMIC_DESCRIPTION;
+const image = comic.image;
+---
+<meta property="og:site_name" content={comicName} />
+<meta property="og:title" content={title} />
+<meta property="og:type" content="article" />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:image" content={image} />
+<meta property="og:description" content={description}>
+
+<meta name="twitter:title" content={title}>
+<meta name="twitter:description" content={description}>
+<meta name="twitter:image" content={image}>
+<meta name="twitter:card" content="summary_large_image">

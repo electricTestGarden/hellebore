@@ -12,7 +12,7 @@ const comic = comicOverride ? comicOverride : frontmatter;
 const comicSrc = comicImageBasePath + comic.imageFile;
 ---
 
-<BaseLayout pageTitle={comic.title} comicSlug={comic.slug}>
+<BaseLayout pageTitle={comic.title} comic={comic}>
     <main id="primary" class="site-main">
         <article class="post">
             <div class="comic-wrapper">
