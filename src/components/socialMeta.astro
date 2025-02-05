@@ -1,11 +1,17 @@
 ---
 const { props } = Astro.props;
 const { pageTitle, comic } = props;
+import { getNextComic, getPrevComic } from "../utils";
 const comicName = import.meta.env.COMIC_NAME;
 
+const prevComic = comic?.slug ? await getPrevComic(comic.slug) : '';
+const nextComic = comic?.slug ? await getNextComic(comic.slug) : '';
+
 const title = comicName ? comicName + " - " + pageTitle : pageTitle;
-const description = comic.post || import.meta.env.COMIC_DESCRIPTION;
-const image = comic.image;
+const description = comic?.post || import.meta.env.COMIC_DESCRIPTION;
+const image = comic?.image;
+
+console.log(prevComic);
 ---
 <meta property="og:site_name" content={comicName} />
 <meta property="og:title" content={title} />
@@ -18,3 +24,6 @@ const image = comic.image;
 <meta name="twitter:description" content={description}>
 <meta name="twitter:image" content={image}>
 <meta name="twitter:card" content="summary_large_image">
+
+{ prevComic && <link rel="prev" href={"/comic/" + prevComic.data.slug}> }
+{ nextComic && <link rel="next" href={"/comic/" + nextComic.data.slug}> }

@@ -1,6 +1,4 @@
 ---
-import { getNextComic, getPrevComic } from "../utils";
-
 /**
  * The head for our theme
  * This is the template that displays all of the <head> section and everything up until </head>
@@ -9,9 +7,6 @@ import '../assets/styles/main.scss';
 import SocialMeta from "./socialMeta.astro";
 const { pageTitle, comic } = Astro.props;
 const comicName = import.meta.env.COMIC_NAME;
-
-const prevComic = await getPrevComic(comic.slug);
-const nextComic = await getNextComic(comic.slug);
 ---
 
 <!doctype html>
@@ -34,8 +29,5 @@ const nextComic = await getNextComic(comic.slug);
 	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
 	<SocialMeta props={Astro.props} />
-
-	{ prevComic && <link rel="prev" href={"/comic/" + prevComic.data.slug}> }
-	{ nextComic && <link rel="next" href={"/comic/" + nextComic.data.slug}> }
 
 </head>
