@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/comicLayout.astro
 title: 'Finale'
-slug: 'comic-3'
+slug: 'finale'
 pubDate: 2025-01-03 
 description: 'Finale'
 imageFile: 'finale.png'
