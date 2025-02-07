@@ -2,13 +2,13 @@
     { 
         "name": "Kathleen", 
         "description": "dat dat dat some info",
-        "imageFile": "ada-profile.png",
+        "imageFile": "kathleen-profile.png",
         "id": "kathleen"
     },
     {
         "name": "You",
         "description": "Our intrepid comics adventurerer",
-        "imageFile": "rory.png",
+        "imageFile": "you-profile.png",
         "id": "you"
     }
 ]
