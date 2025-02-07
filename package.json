@@ -11,7 +11,8 @@
     "setup:examples": "yarn setup:pages && yarn setup:comics",
     "cleanup:examples": "yarn cleanup:pages && yarn cleanup:comics",
     "setup:pages": "shx cp -f example/pages/about.md src/pages/about.md",
-    "setup:comics": "shx cp -f example/pages/comic/* src/pages/comic",
+    "setup:comics": "shx cp -f example/pages/comic/* src/pages/comic && shx cp -f example/assets/images/comics/* public/assets/images/comics/",
+    "setup:data": "shx cp -f example/data/* src/data",
     "cleanup:pages": "shx rm -f src/pages/about.md",
     "cleanup:comics": "shx rm -f src/pages/comic/*"
   },

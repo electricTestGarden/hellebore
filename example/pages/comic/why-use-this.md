@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/comicLayout.astro
 title: 'Why use this?'
-slug: 'comic-2'
+slug: 'why-use-this'
 pubDate: 2025-01-02 
 description: 'Why use this?'
 imageFile: 'why-use-this.png'
