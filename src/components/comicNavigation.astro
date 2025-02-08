@@ -22,7 +22,8 @@ const nextClasses = isLast ? "next disabled" : "next";
 const nextHref = isLast ? "" : "/comic/" + (await getNextComic(comic.slug))?.data.slug;
 
 const latestClasses = isLast ? "latest disabled" : "latest";
-const latestHref = isLast ? "" : (await getLastComic())?.data.slug;
+const latestHref = isLast ? "" : "/comic/" + (await getLastComic())?.data.slug;
+console.log("Latest href: ", latestHref);
 ---
 <section class="navigation" title="Previous Comic">
     <div class="navigation-wrapper" title="Next Comic">
