@@ -10,8 +10,6 @@ const nextComic = comic?.slug ? await getNextComic(comic.slug) : '';
 const title = comicName ? comicName + " - " + pageTitle : pageTitle;
 const description = comic?.post || import.meta.env.COMIC_DESCRIPTION;
 const image = comic?.image;
-
-console.log(prevComic);
 ---
 <meta property="og:site_name" content={comicName} />
 <meta property="og:title" content={title} />
