@@ -1,5 +1,5 @@
 # Hellebore Astro Comic Theme 
-This is a work in progress - a simple Astro theme aimed at providing a simple way to get a webcomic up and running
+This is a work in progress - a simple Astro theme aimed at providing a simple way to get a webcomic up and running.
 
 ## 🚀 Project Structure
 
