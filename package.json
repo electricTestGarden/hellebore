@@ -9,14 +9,15 @@
     "preview": "astro preview",
     "astro": "astro",
     "setup:examples": "yarn setup:pages && yarn setup:comics && yarn setup:images && yarn setup:data",
-    "cleanup:examples": "yarn cleanup:pages && yarn cleanup:comics && yarn cleanup:images",
+    "cleanup:examples": "yarn cleanup:pages && yarn cleanup:comics && yarn cleanup:images && yarn cleanup:data",
     "setup:pages": "shx cp -f example/pages/about.md src/pages/about.md",
-    "setup:comics": "shx cp -f example/pages/comic/* src/pages/comic && shx cp -f example/assets/images/comics/* public/assets/images/comics/",
-    "setup:images": "shx cp -f example/assets/images/* public/assets/images/",
+    "setup:comics": "shx cp -f example/pages/comic/* src/pages/comic",
+    "setup:images": "shx cp -rf example/assets/images/* public/assets/images",
     "setup:data": "shx cp -f example/data/* src/data",
     "cleanup:pages": "shx rm -f src/pages/about.md",
-    "cleanup:comics": "shx rm -f src/pages/comic/*",
-    "cleanup:images": "shx rm -f public/assets/images/hellebore-logo.png"
+    "cleanup:comics": "shx rm -f src/pages/comic/finale.md && shx rm -f src/pages/comic/what-is-this.md && shx rm -f src/pages/comic/why-use-this.md",
+    "cleanup:images": "shx rm -f public/assets/images/comics/finale.png && shx rm -f public/assets/images/comics/what-is-this.png && shx rm -f public/assets/images/comics/why-use-this.png && shx rm -f public/assets/images/hellebore-logo.png",
+    "cleanup:data": "shx rm -f src/data/characters.json"
   },
   "dependencies": {
     "astro": "^5.1.9",
