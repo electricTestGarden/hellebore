@@ -4,6 +4,8 @@ import Footer from '../components/footer.astro';
 import Navigation from '../components/navigation.astro';
 
 const { pageTitle, comic } = Astro.props;
+const headerSrc = import.meta.env.HEADER_IMAGE_PATH;
+const headerAlt = import.meta.env.COIMC_NAME;
 
 ---
 <Header pageTitle={pageTitle} comic={comic} />
@@ -14,7 +16,7 @@ const { pageTitle, comic } = Astro.props;
 		<div class="site-branding">
 				<h1 class="site-title">
                     <a href="" rel="home">
-                        <img src="/assets/images/logo.png" width="1000" height="123" alt="" srcset="https://www.manifolddestiny.com/wp-content/uploads/2020/08/manifold-destiny-logo-medium.png 1000w, https://www.manifolddestiny.com/wp-content/uploads/2020/08/manifold-destiny-logo-medium-300x37.png 300w, https://www.manifolddestiny.com/wp-content/uploads/2020/08/manifold-destiny-logo-medium-768x94.png 768w" sizes="(max-width: 1000px) 100vw, 1000px" decoding="async" fetchpriority="high">
+                        <img src={headerSrc} width="1000" height="123" alt={headerAlt} decoding="async" fetchpriority="high">
                     </a>
                 </h1>
 		</div><!-- .site-branding -->

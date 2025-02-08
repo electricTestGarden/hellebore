@@ -8,13 +8,15 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "setup:examples": "yarn setup:pages && yarn setup:comics",
-    "cleanup:examples": "yarn cleanup:pages && yarn cleanup:comics",
+    "setup:examples": "yarn setup:pages && yarn setup:comics && yarn setup:images && yarn setup:data",
+    "cleanup:examples": "yarn cleanup:pages && yarn cleanup:comics && yarn cleanup:images",
     "setup:pages": "shx cp -f example/pages/about.md src/pages/about.md",
     "setup:comics": "shx cp -f example/pages/comic/* src/pages/comic && shx cp -f example/assets/images/comics/* public/assets/images/comics/",
+    "setup:images": "shx cp -f example/assets/images/* public/assets/images/",
     "setup:data": "shx cp -f example/data/* src/data",
     "cleanup:pages": "shx rm -f src/pages/about.md",
-    "cleanup:comics": "shx rm -f src/pages/comic/*"
+    "cleanup:comics": "shx rm -f src/pages/comic/*",
+    "cleanup:images": "shx rm -f public/assets/images/hellebore-logo.png"
   },
   "dependencies": {
     "astro": "^5.1.9",
