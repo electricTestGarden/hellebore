@@ -1,4 +1,4 @@
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 
 /**
  * Image Path helpers
@@ -75,3 +75,40 @@ export const getPrevComic = async ( comicSlug: string ) => {
     const currentComicsIndex = allSortedComics.findIndex((post) => post.id == comicSlug);
     return (currentComicsIndex - 1 === allSortedComics.length) ? undefined : allSortedComics[currentComicsIndex - 1];
 }
+
+/**
+ * Returns characters in character collection sorted by number of comic appearances 
+ */
+export const getSortedCharacters = async () => {
+    const comics = await getCollection('comics');
+    const characters = await getCollection('characters');
+
+    characters.sort((a, b) => {
+        return getComicsWithChar(b.data.id, comics).length - getComicsWithChar(a.data.id, comics).length;
+    });
+
+    return characters;
+}
+
+/**
+ * Gets collection of comics that contain a particular character
+ * @param character 
+ * @param comics 
+ * @returns 
+ */
+export const getComicsWithChar = (character: string, comics: CollectionEntry<"comics">[]) => {
+    return comics.filter((comic) => comicHasCharacter(comic, character));
+}
+
+/**
+ * Returns true if a character exists on a comic
+ * 
+ * @param comic 
+ * @param title 
+ * @returns 
+ */
+export const comicHasCharacter = (comic: CollectionEntry<"comics">, title: string) => {
+    return comic.data.characters
+        .map((a: string) => a.toLowerCase())
+        .includes(title);
+};

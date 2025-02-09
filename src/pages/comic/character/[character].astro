@@ -1,8 +1,7 @@
 ---
 import { getCollection } from "astro:content";
-import type { CollectionEntry } from "astro:content";
 import ArchiveLayout from "../../../layouts/archiveLayout.astro";
-import { characterImageBasePath } from "../../../utils";
+import { characterImageBasePath, comicHasCharacter, getComicsWithChar } from "../../../utils";
 
 export async function getStaticPaths() {
     const allComicPosts = await getCollection("comics");
@@ -23,16 +22,11 @@ const title = character.replaceAll("-", " ");
 const allComicPosts = await getCollection("comics");
 const characterCollection = await getCollection("characters");
 
-const comicHasCharacter = (comic: CollectionEntry<"comics">, title: string) => {
-    return comic.data.characters
-        .map((a: string) => a.toLowerCase())
-        .includes(title);
-};
-
-const comics = allComicPosts.filter((comic) => comicHasCharacter(comic, title));
+const comics = getComicsWithChar(title, allComicPosts);
 const currentCharacter = characterCollection.filter(
     (char) => char.data.id === character,
 )[0];
+
 const image = {
     path: characterImageBasePath + currentCharacter.data.imageFile,
     alt: `An image of the character ${currentCharacter.data.name}`,

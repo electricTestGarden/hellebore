@@ -2,8 +2,9 @@
 import { getCollection } from 'astro:content';
 import PageLayout from "../layouts/pageLayout.astro";
 import Character from "../components/character.astro";
+import { getSortedCharacters } from '../utils';
 
-const characters = await getCollection('characters');
+const characters = await getSortedCharacters();
 ---
 
 <PageLayout titleOverride="Characters">
