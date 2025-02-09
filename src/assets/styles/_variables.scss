@@ -14,14 +14,14 @@ $dark-grey: #4E4E4E;
 $medium-grey: #767676;
 $grey: #c7bfbf;
 
-$dark-purple: #31364c;
-$light-purple: #473f6c;
-$medium-purple: #67588c;
-$lightest-purple: #afa0d3;
+$theme-dark: #31364c;
+$theme-light: #473f6c;
+$theme-medium: #67588c;
+$theme-lightest: #afa0d3;
 
 // Fonts
-$anton: Anton,sans-serif;
-$source-sans: "Source Sans Pro",Arial,sans-serif;
+$primary-font: Anton,sans-serif;
+$secondary-font: "Source Sans Pro",Arial,sans-serif;
 
 // Breakpoints
 $tablet: 37.5em;

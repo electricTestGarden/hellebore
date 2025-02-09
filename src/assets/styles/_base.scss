@@ -46,9 +46,9 @@
 }
 
 a, a:visited {
-  color: variables.$medium-purple; 
+  color: variables.$theme-medium; 
  
   &:hover {
-    color: variables.$lightest-purple; 
+    color: variables.$theme-lightest; 
   }
 }

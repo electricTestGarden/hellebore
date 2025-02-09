@@ -21,7 +21,7 @@ main {
 
     section.navigation {
         display: flex;
-        background-color: variables.$dark-purple;
+        background-color: variables.$theme-dark;
         width: 100%;
         
         .navigation-wrapper {
@@ -46,7 +46,7 @@ main {
         }
 
         .entry-title {
-            color: variables.$medium-purple; 
+            color: variables.$theme-medium; 
             margin-bottom: 0;
         }
 
