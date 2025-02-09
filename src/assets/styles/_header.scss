@@ -5,7 +5,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: variables.$dark-purple;
+        background-color: variables.$theme-dark;
         padding: 0 20px;
     }
     #site-navigation {
@@ -13,15 +13,15 @@
         .menu-toggle {
             display: inline-block;
             margin: 15px;
-            font-family: variables.$anton;
-            color: variables.$lightest-purple;
+            font-family: variables.$primary-font;
+            color: variables.$theme-lightest;
             border: 0 transparent;
             background-color: transparent;
             text-transform: lowercase;
             font-size: 2em;
             padding: 0;
             &:hover {
-                color: variables.$medium-purple;
+                color: variables.$theme-medium;
             }
             &:hover, &:focus, &:active {
                 border: 0 transparent;
@@ -30,11 +30,11 @@
         }
     }
     .main-navigation {
-        background-color: variables.$light-purple;
+        background-color: variables.$theme-light;
 
         .menu-primary-container {
             display: flex;
-            background-color: variables.$light-purple;
+            background-color: variables.$theme-light;
 
             ul.menu {
                 margin-bottom: 20px;
@@ -49,17 +49,17 @@
         }
 
         a {
-            font-family: variables.$anton;
+            font-family: variables.$primary-font;
             font-size: 1.8em;
-            color: variables.$lightest-purple;
+            color: variables.$theme-lightest;
             text-transform: lowercase;
             &:hover {
-                color: variables.$medium-purple;
+                color: variables.$theme-medium;
             }
         }
 
         .current-menu-item a {
-            color: variables.$medium-purple;
+            color: variables.$theme-medium;
         }
     }
     @media screen and (min-width: variables.$tablet) {

@@ -3,7 +3,7 @@
 footer.site-footer {
     display: flex;
     flex-direction: column;
-    background-color: variables.$dark-purple;
+    background-color: variables.$theme-dark;
     padding: 20px;
 
     .site-footer__menu-wrapper {
@@ -14,7 +14,7 @@ footer.site-footer {
         margin-bottom: 20px;
 
         .site-footer__menu-column {
-            color: variables.$medium-purple;
+            color: variables.$theme-medium;
             margin-right: 50px;
 
             h4 {
@@ -34,7 +34,7 @@ footer.site-footer {
         }
         
         ul li, ul li a {
-            color: variables.$medium-purple;
+            color: variables.$theme-medium;
             text-decoration: none;
         }
     }
@@ -43,8 +43,8 @@ footer.site-footer {
         display: flex;
         justify-content: center;
         p {
-            color: variables.$medium-purple;
-            font-family: variables.$source-sans;
+            color: variables.$theme-medium;
+            font-family: variables.$secondary-font;
             font-size: 14px;
             font-weight: 700;
         }
