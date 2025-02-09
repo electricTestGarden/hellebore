@@ -25,4 +25,12 @@ const characters = defineCollection({
   })
 });
 
-export const collections = { comics, characters };
+const tags = defineCollection({
+  loader: file("src/data/tags.json", { parser: (text) => JSON.parse(text)}),
+  schema: z.object({
+    description: z.string(),
+    id: z.string()
+  })
+});
+
+export const collections = { comics, characters, tags };
