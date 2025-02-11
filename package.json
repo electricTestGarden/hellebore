@@ -17,7 +17,9 @@
     "cleanup:pages": "shx rm -f src/pages/about.md",
     "cleanup:comics": "shx rm -f src/pages/comic/finale.md && shx rm -f src/pages/comic/what-is-this.md && shx rm -f src/pages/comic/why-use-this.md",
     "cleanup:images": "shx rm -f public/assets/images/comics/finale.png && shx rm -f public/assets/images/comics/what-is-this.png && shx rm -f public/assets/images/comics/why-use-this.png && shx rm -f public/assets/images/hellebore-logo.png",
-    "cleanup:data": "shx rm -f src/data/characters.json && shx rm -f src/data/tags.json"
+    "cleanup:data": "shx rm -f src/data/characters.json && shx rm -f src/data/tags.json",
+    "prepare": "husky",
+    "test": "echo 'Testing Husky'"
   },
   "dependencies": {
     "astro": "^5.1.9",
@@ -25,6 +27,7 @@
   },
   "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e",
   "devDependencies": {
+    "husky": "^9.1.7",
     "sass": "^1.83.4",
     "shx": "^0.3.4"
   }
