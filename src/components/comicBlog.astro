@@ -29,9 +29,12 @@ const formattedDate = new Date(comic.pubDate).toLocaleString('en-US', { timeZone
                 Characters: <BlogLinks type="character" links={comic.characters}/> 
             </span>
             <a id="transcript-link" href="#">Transcript →</a>
-            <div id="transcript" class="hidden">
-                <h4>Comic Transcript</h4>
-                <slot /> 
+            <div id="transcript-wrapper" class="hidden">
+                <div class="transcript">
+                    <div id="transcript-close" class="close">x</div>
+                    <h4>Comic Transcript</h4>
+                    <slot /> 
+                </div>
             </div>
         </footer>
     </div>
