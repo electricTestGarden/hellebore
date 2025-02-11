@@ -111,4 +111,12 @@ export const comicHasCharacter = (comic: CollectionEntry<"comics">, title: strin
     return comic.data.characters
         .map((a: string) => a.toLowerCase())
         .includes(title);
-};
+}
+
+/**
+ * Check if file exists and contains information 
+ * @param path 
+ */
+export const fileExists = (path: string) => {
+    return (Object.keys(import.meta.glob(path)).length === 0);
+}

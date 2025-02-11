@@ -1,5 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 import { glob, file } from 'astro/loaders';
+import { fileExists } from './utils';
 
 const comics = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/pages/comic" }),
@@ -15,8 +16,10 @@ const comics = defineCollection({
   })
 });
 
+const characterFile = fileExists("./src/data/characters.json") ? "src/data/characters.json" : "src/data/characters-example.json";
+
 const characters = defineCollection({
-  loader: file("src/data/characters.json", { parser: (text) => JSON.parse(text)}),
+  loader: file(characterFile, { parser: (text) => JSON.parse(text)}),
   schema: z.object({
     name: z.string(),
     description: z.string(),
@@ -25,8 +28,10 @@ const characters = defineCollection({
   })
 });
 
+const tagFile = fileExists("./src/data/tags.json") ? "src/data/tags.json" : "src/data/tags-example.json";
+
 const tags = defineCollection({
-  loader: file("src/data/tags.json", { parser: (text) => JSON.parse(text)}),
+  loader: file(tagFile, { parser: (text) => JSON.parse(text)}),
   schema: z.object({
     description: z.string(),
     id: z.string()

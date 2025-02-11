@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import ArchiveLayout from "../../../layouts/archiveLayout.astro";
-import { characterImageBasePath, comicHasCharacter, getComicsWithChar } from "../../../utils";
+import { characterImageBasePath, getComicsWithChar } from "../../../utils";
 
 export async function getStaticPaths() {
     const allComicPosts = await getCollection("comics");
