@@ -3,7 +3,6 @@ import type { CollectionEntry} from "astro:content";
 import BaseLayout from "./baseLayout.astro";
 import ComicNavigation from '../components/comicNavigation.astro';
 import ComicBlog from '../components/comicBlog.astro';
-import ComicScripts from '../components/comicScripts.astro';
 import { comicImageBasePath } from "../utils";
 
 const { frontmatter, comicOverride } = Astro.props;
@@ -31,6 +30,5 @@ const comicSrc = comicImageBasePath + comic.imageFile;
         </article>
         <ComicNavigation comic={comic} />
         <ComicBlog comic={comic}><slot/></ComicBlog> 
-        <ComicScripts />
     </main>
 </BaseLayout>

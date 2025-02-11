@@ -1,0 +1,41 @@
+@use "variables";
+
+#transcript-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: calc(infinity);
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background-color: rgba(0,0,0,0.5);
+    .transcript {
+        position: relative;
+        padding: 30px;
+        background-color: variables.$white;
+        h4 {
+            margin-bottom: -1;
+        }
+        .close {
+            display: flex;
+            position: absolute;
+            right: 8px;
+            top: 8px;
+            align-self: end;
+            border: 2px solid variables.$black;
+            border-radius: 50%;
+            padding: 8px;
+            padding-top: 4px;
+            line-height: 10px;
+            font-size: inherit;
+            cursor: pointer;
+            background-color: variables.$theme-lightest;
+        }
+    }
+}
+
+.body-noscroll {
+    overflow: hidden;
+}
