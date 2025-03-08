@@ -1,6 +1,6 @@
 ---
-import { render } from 'astro:content';
 import BlogLinks from './blogLinks.astro';
+import { hasSlot } from '../utils';
 const { comic } = Astro.props;
 
 const formattedDate = new Date(comic.pubDate).toLocaleString('en-US', { timeZone: 'UTC', month: "long", day: "numeric", year: "numeric"});
@@ -28,14 +28,16 @@ const formattedDate = new Date(comic.pubDate).toLocaleString('en-US', { timeZone
             <span class="characters-links">
                 Characters: <BlogLinks type="character" links={comic.characters}/> 
             </span>
-            <a id="transcript-link" href="#">Transcript →</a>
-            <div id="transcript-wrapper" class="hidden">
-                <div class="transcript">
-                    <div id="transcript-close" class="close">x</div>
-                    <h4>Comic Transcript</h4>
-                    <slot /> 
+            {await hasSlot(Astro.slots, 'default') && 
+                <a id="transcript-link" href="#">Transcript →</a>
+                <div id="transcript-wrapper" class="hidden">
+                    <div class="transcript">
+                        <div id="transcript-close" class="close">x</div>
+                        <h4>Comic Transcript</h4>
+                        <slot /> 
+                    </div>
                 </div>
-            </div>
+            }
         </footer>
     </div>
 </section>

@@ -112,3 +112,15 @@ export const comicHasCharacter = (comic: CollectionEntry<"comics">, title: strin
         .map((a: string) => a.toLowerCase())
         .includes(title);
 }
+
+/**
+ * Returns true if a named slot has content in it 
+ * 
+ * @param slot 
+ * @param name 
+ * @returns boolean
+ */
+export const hasSlot = async (slot: AstroGlobal['slots'], name: string) => {
+  const renderedContent = await slot.render(name);
+  return !!renderedContent?.trim().length;
+}
