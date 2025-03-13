@@ -6,7 +6,7 @@ pubDate: 2025-01-03
 description: 'Finale'
 imageFile: 'finale.png'
 tags: []
-characters: ["Kathleen", "You!"]
+characters: ["Kathleen", "You"]
 post: 'This is the third blog post'
 ---
 
