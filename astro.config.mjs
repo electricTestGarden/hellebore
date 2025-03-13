@@ -1,12 +1,15 @@
 // @ts-check
 import { defineConfig, envField } from 'astro/config';
+import { loadEnv } from "vite";
 
 import compress from "astro-compress";
 
+const { BASE, SITE_URL } = loadEnv(process.env.NODE_ENV, process.cwd(), "") || "";
+
 // https://astro.build/config
 export default defineConfig({
-  base: process.env.BASE,
-  site: process.env.SITE_URL, 
+  base: BASE,
+  site: SITE_URL, 
   env: {
     schema: {
         COMIC_NAME: envField.string({ context: "client", access: "public", default: "YOUR COMIC"}), 
