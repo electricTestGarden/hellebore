@@ -4,8 +4,9 @@ import Footer from '../components/footer.astro';
 import Navigation from '../components/navigation.astro';
 
 const { pageTitle, comic } = Astro.props;
-const headerSrc = import.meta.env.HEADER_IMAGE_PATH;
-const headerAlt = import.meta.env.COIMC_NAME;
+const base = import.meta.env.BASE_URL;
+const headerSrc = `${base}${import.meta.env.HEADER_IMAGE_PATH}`;
+const headerAlt = import.meta.env.COMIC_NAME;
 
 ---
 <Header pageTitle={pageTitle} comic={comic} />
@@ -15,7 +16,7 @@ const headerAlt = import.meta.env.COIMC_NAME;
 	<header id="masthead" class="site-header">
 		<div class="site-branding">
 				<h1 class="site-title">
-                    <a href="" rel="home">
+                    <a href={base} rel="home">
                         <img src={headerSrc} width="1000" height="123" alt={headerAlt} decoding="async" fetchpriority="high">
                     </a>
                 </h1>

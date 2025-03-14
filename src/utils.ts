@@ -1,12 +1,13 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
+const base = import.meta.env.BASE;
 
 /**
  * Image Path helpers
  */
-export const comicImageBasePath = "/assets/images/comics/";
-export const characterImageBasePath = "/assets/images/characters/";
-export const comicBasePath = "/comic/";
-export const characterBasePath = "/comic/character/";
+export const comicImageBasePath = `${base}/assets/images/comics/`;
+export const characterImageBasePath = `${base}/assets/images/characters/`;
+export const comicBasePath = `${base}/comic/`;
+export const characterBasePath = `${base}/comic/character/`;
 
 // TODO: These isFirst / isLast may be able to be combined 
 /**

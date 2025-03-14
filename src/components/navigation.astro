@@ -1,11 +1,12 @@
 ---
 const shopLink = import.meta.env.SHOP_LINK;
+const base = import.meta.env.BASE_URL;
 const menu = [
-  { text: "Home", path: "/" },
-  { text: "About", path: "/about" },
-  { text: "Characters", path: "/characters" },
-  { text: "Shop", path: shopLink, target: "_blank" },
-  { text: "Archive", path: "/archive" },
+  { text: "Home", path: `${base}/` },
+  { text: "About", path: `${base}/about` },
+  { text: "Characters", path: `${base}/characters` },
+  { text: "Shop", path: shopLink, target: `_blank` },
+  { text: "Archive", path: `${base}/archive` },
 ];
 ---
 

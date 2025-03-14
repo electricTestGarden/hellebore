@@ -1,8 +1,9 @@
 ---
 import { comicImageBasePath } from "../utils";
 const { comic } = Astro.props;
+const base = import.meta.env.BASE_URL;
 ---
 
-<a href={"/comic/" + comic.data.slug}>
+<a href=`${base}/comic/${comic.data.slug}`>
     <img width="116" ="300" src={comicImageBasePath + comic.data.imageFile} alt={"Link to " + comic.data.title + " comic"} decoding="async" sizes="(max-width: 116px) 100vw, 116px">
 </a>
