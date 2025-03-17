@@ -22,10 +22,10 @@ const formattedDate = new Date(comic.pubDate).toLocaleString('en-US', { timeZone
         </div>
 
         <footer class="entry-footer">
-            <span class="tags-links">
-                Tags: <BlogLinks type="tag" links={comic.tags} /> 
+            <span class="links tags-links">
+                Tags: <BlogLinks type="tag" links={comic.tags}/> 
             </span>
-            <span class="characters-links">
+            <span class="links characters-links">
                 Characters: <BlogLinks type="character" links={comic.characters}/> 
             </span>
             {await hasSlot(Astro.slots, 'default') && 
