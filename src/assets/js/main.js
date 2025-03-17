@@ -1,3 +1,4 @@
-import { setupHelpPopup } from "./util";
+import { setupPopupClosing, setupTranscriptLink } from "./util";
 
-setupHelpPopup();
+setupPopupClosing();
+setupTranscriptLink();

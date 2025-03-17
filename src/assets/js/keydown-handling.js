@@ -1,4 +1,4 @@
-import { closeHelpPopup, openHelpPopup } from "./util";
+import { closePopup, openPopup } from "./util";
 
 document.addEventListener("DOMContentLoaded", function () {
     addEventListener("keydown", (event) => {
@@ -6,9 +6,9 @@ document.addEventListener("DOMContentLoaded", function () {
             case 'h': 
                 const helpPopup = document.getElementById('help-popup');
                 if (helpPopup.classList.contains('hidden')) {
-                    openHelpPopup();
+                    openPopup(helpPopup);
                 } else {
-                    closeHelpPopup();
+                    closePopup(helpPopup);
                 }
                 break;
             case 'ArrowLeft':

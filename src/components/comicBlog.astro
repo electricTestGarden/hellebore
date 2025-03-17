@@ -30,9 +30,9 @@ const formattedDate = new Date(comic.pubDate).toLocaleString('en-US', { timeZone
             </span>
             {await hasSlot(Astro.slots, 'default') && 
                 <a id="transcript-link" href="#">Transcript →</a>
-                <div id="transcript-wrapper" class="hidden">
-                    <div class="transcript">
-                        <div id="transcript-close" class="close">x</div>
+                <div id="transcript-popup" class="popup hidden">
+                    <div class="popup-content">
+                        <button class="popup-close">x</button>
                         <h4>Comic Transcript</h4>
                         <slot /> 
                     </div>
