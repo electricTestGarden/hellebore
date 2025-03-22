@@ -1,26 +1,31 @@
 @use "variables";
 
-.character {
-    display: flex;
-    &__image {
-        margin-right: 20px;
-        flex-shrink: 0;
-    }
-    &__description {
-        h3 {
-            margin-top: 0;
+.page {
+    .entry-header {
+        text-transform: capitalize;
+        h1 {
+            margin-bottom: 15px;
         }
     }
-}
 
-.archive {
-    a {
-        img {
-            border: 1px solid variables.$medium-grey;
+    .character {
+        display: flex;
+        &__image {
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        &__description {
+            h3 {
+                margin-top: 0;
+            }
         }
     }
-}
-
-.entry-title {
-    text-transform: capitalize;
+    
+    .archive {
+        a {
+            img {
+                border: 1px solid variables.$medium-grey;
+            }
+        }
+    }
 }

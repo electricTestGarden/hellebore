@@ -789,7 +789,8 @@ a:active {
 
 .post,
 .page {
-	margin: 0 0 1.5em;
+	margin: 0;
+	padding-bottom: 1.5em;
 }
 
 .updated:not(.published) {

@@ -1,6 +1,7 @@
 ---
 const { type, links } = Astro.props;
+const base = import.meta.env.BASE_URL;
 ---
 <ul>
-{ links.map((data: string) => <li><a href={"/comic/" + type + "/" + data.toLowerCase().replaceAll(" ", "-")} rel={type}>{data}</a></li> ) }
+{ links.map((data: string) => <li><a href={`${base}/comic/${type}/${data.toLowerCase().replaceAll(" ", "-")}`} rel={type}>{data}</a></li> ) }
 </ul>
