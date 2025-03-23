@@ -27,7 +27,7 @@ const followMenu = [
 
 const year = new Date().toLocaleDateString('en-US', { year: 'numeric' });
 const images = import.meta.glob<{ default: ImageMetadata }>(`../assets/images/footer/*.{jpeg,jpg,png,gif}`);
-const footerImagePath = `..${import.meta.env.FOOTER_IMAGE_PATH}`;
+const footerImagePath = import.meta.env.FOOTER_IMAGE_PATH ? `..${import.meta.env.FOOTER_IMAGE_PATH}` : "";
 const footerImageAltText = import.meta.env.FOOTER_IMAGE_ALT_TEXT; 
 
 console.log(images);
@@ -52,15 +52,17 @@ console.log(footerImagePath);
             </ul> 
         </div>
         <div class="site-footer__menu-column hide-small">
-            <Picture
-                src={images[footerImagePath]()}
-                alt={footerImageAltText}
-                formats={['webp']}
-                layout='responsive'
-                loading="lazy"
-                widths={[200, 400]}
-                sizes="(max-width: 991px) 200px, 400px"
-            /> 
+            {footerImagePath && 
+                <Picture
+                    src={images[footerImagePath]()}
+                    alt={footerImageAltText}
+                    formats={['webp']}
+                    layout='responsive'
+                    loading="lazy"
+                    widths={[200, 400]}
+                    sizes="(max-width: 991px) 200px, 400px"
+                /> 
+            }
         </div>
     </div>
     <div class="copyright">
