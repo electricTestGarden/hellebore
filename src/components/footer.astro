@@ -1,4 +1,5 @@
 ---
+import { Picture } from "astro:assets";
 import HelpPopup from "./helpPopup.astro";
 import Scripts from "./scripts.astro";
 
@@ -25,8 +26,12 @@ const followMenu = [
 ];
 
 const year = new Date().toLocaleDateString('en-US', { year: 'numeric' });
-const footerImagePath = import.meta.env.FOOTER_IMAGE_PATH;
+const images = import.meta.glob<{ default: ImageMetadata }>(`../assets/images/footer/*.{jpeg,jpg,png,gif}`);
+const footerImagePath = `..${import.meta.env.FOOTER_IMAGE_PATH}`;
 const footerImageAltText = import.meta.env.FOOTER_IMAGE_ALT_TEXT; 
+
+console.log(images);
+console.log(footerImagePath);
     
 ---
 
@@ -47,10 +52,15 @@ const footerImageAltText = import.meta.env.FOOTER_IMAGE_ALT_TEXT;
             </ul> 
         </div>
         <div class="site-footer__menu-column hide-small">
-            <img
+            <Picture
+                src={images[footerImagePath]()}
                 alt={footerImageAltText}
-                src={footerImagePath}
-            />
+                formats={['webp']}
+                layout='responsive'
+                loading="lazy"
+                widths={[200, 400]}
+                sizes="(max-width: 991px) 200px, 400px"
+            /> 
         </div>
     </div>
     <div class="copyright">
