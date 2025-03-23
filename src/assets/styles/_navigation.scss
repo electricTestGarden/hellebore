@@ -18,6 +18,9 @@
     a {
         text-decoration: none;
         display: inline-flex;
+        .arrow-innards {
+            fill: variables.$theme-lightest;
+        }
         &:hover {
             .arrow-innards {
                 fill: variables.$theme-medium;
