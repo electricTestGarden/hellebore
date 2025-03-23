@@ -1,15 +1,32 @@
 ---
-import { characterBasePath, characterImageBasePath } from "../utils"; 
-const { character } = Astro.props;
+/**
+ * The image handling on this page is kind of a PITA. 
+ * More info here: https://docs.astro.build/en/recipes/dynamically-importing-images/
+ * Essentially to use imports for images, which you need for using astros Image or Picture,
+ * you must use a string literal. So the meta glob import is needed if you want to do it dynamically
+ */
+import { characterBasePath } from "../utils"; 
+import { Picture } from 'astro:assets';
 
+const { character } = Astro.props;
 const tagPageUrl = characterBasePath + character.id;
-const imageUrl = characterImageBasePath + character.data.imageFile;
+const images = import.meta.glob<{ default: ImageMetadata }>(`../assets/images/characters/*.{jpeg,jpg,png,gif}`);
+const imagePath = `../assets/images/characters/${character.data.imageFile}`;
 const altText = `A drawn image of the character ${character.id}`;
+// TODO: Image breakpoints could probably use some revision
 ---
 <div class="character">
     <div class="character__image">
         <a href={tagPageUrl}>
-            <img src={imageUrl} alt={altText}>				
+            <Picture
+                src={images[imagePath]()}
+                alt={altText}
+                formats={['webp']}
+                layout='responsive'
+                loading="lazy"
+                widths={[200, 400]}
+                sizes="(max-width: 991px) 200px, 400px"
+            />
         </a>
     </div>
     <div class="character__description">

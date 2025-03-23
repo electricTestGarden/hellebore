@@ -1,14 +1,14 @@
 [
     { 
         "name": "Kathleen", 
-        "description": "dat dat dat some info",
-        "imageFile": "kathleen-profile.png",
+        "description": "They made this theme!",
+        "imageFile": "kathleen.png",
         "id": "kathleen"
     },
     {
         "name": "You",
         "description": "Our intrepid comics adventurerer",
-        "imageFile": "you-profile.png",
+        "imageFile": "you.png",
         "id": "you"
     }
 ]

@@ -12,11 +12,11 @@
     "cleanup:examples": "yarn cleanup:pages && yarn cleanup:comics && yarn cleanup:images && yarn cleanup:data",
     "setup:pages": "shx cp -f example/pages/about.md src/pages/about.md",
     "setup:comics": "shx cp -f example/pages/comic/* src/pages/comic",
-    "setup:images": "shx cp -rf example/assets/images/* public/assets/images",
+    "setup:images": "shx cp -rf example/assets/images/* public/assets/images && shx cp -rf examples/assets/images/characters/* src/assets/images/characters",
     "setup:data": "shx cp -f example/data/* src/data",
     "cleanup:pages": "shx rm -f src/pages/about.md",
     "cleanup:comics": "shx rm -f src/pages/comic/finale.md && shx rm -f src/pages/comic/what-is-this.md && shx rm -f src/pages/comic/why-use-this.md",
-    "cleanup:images": "shx rm -f public/assets/images/comics/finale.png && shx rm -f public/assets/images/comics/what-is-this.png && shx rm -f public/assets/images/comics/why-use-this.png && shx rm -f public/assets/images/hellebore-logo.png",
+    "cleanup:images": "shx rm -f public/assets/images/comics/finale.png && shx rm -f public/assets/images/comics/what-is-this.png && shx rm -f public/assets/images/comics/why-use-this.png && shx rm -f public/assets/images/hellebore-logo.png && shx rm -f src/assets/images/characters/kathleen.png && shx rm -f src/assets/images/characters/you.png",
     "cleanup:data": "shx rm -f src/data/characters-example.json && shx rm -f src/data/tags-example.json",
     "prepare": "husky",
     "test": "echo 'Testing Husky'"
