@@ -30,9 +30,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(`../assets/images/fo
 const footerImagePath = import.meta.env.FOOTER_IMAGE_PATH ? `..${import.meta.env.FOOTER_IMAGE_PATH}` : "";
 const footerImageAltText = import.meta.env.FOOTER_IMAGE_ALT_TEXT; 
 
-console.log(images);
-console.log(footerImagePath);
-    
+const footerImageSrc = (footerImagePath in images) ? images[footerImagePath]() : '';
 ---
 
 <footer id="colophon" class="site-footer">
@@ -52,9 +50,9 @@ console.log(footerImagePath);
             </ul> 
         </div>
         <div class="site-footer__menu-column hide-small">
-            {footerImagePath && 
+            {footerImageSrc && 
                 <Picture
-                    src={images[footerImagePath]()}
+                    src={footerImageSrc}
                     alt={footerImageAltText}
                     formats={['webp']}
                     layout='responsive'
