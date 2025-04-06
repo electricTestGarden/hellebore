@@ -6,15 +6,12 @@ import { comicImageBasePath, isLastComic, getNextComic } from "../utils";
 
 const { frontmatter, comicOverride } = Astro.props;
 const comic = comicOverride ? comicOverride : frontmatter; 
-const base = `${import.meta.env.BASE}/` || "";
+const base = import.meta.env.BASE ? `${import.meta.env.BASE}/` : "";
 
 const comicSrc = comicImageBasePath + comic.imageFile;
 const isLast = await isLastComic(comic.slug); 
 const nextComic = await getNextComic(comic.slug);
-const nextHref = isLast ? "" : `${base}comic/` + nextComic?.data.slug;
-
-console.log(comicImageBasePath)
-console.log(comicSrc);
+const nextHref = isLast ? "" : `${base}comic/${nextComic?.data.slug}`;
 ---
 
 <BaseLayout pageTitle={comic.title} comic={comic}>
@@ -23,14 +20,14 @@ console.log(comicSrc);
             <div class="comic-wrapper">
                 <div class="comic">
                     <div class="post-thumbnail">
-                        <a href={nextComic}>
-                        <img
-                            width="770"
-                            height="996"
-                            src={comicSrc}
-                            alt="See transcript"
-                            decoding="async"
-                        />
+                        <a href={nextHref}>
+                            <img
+                                width="770"
+                                height="996"
+                                src={comicSrc}
+                                alt="See transcript"
+                                decoding="async"
+                            />
                         </a>
                     </div>
                 </div>

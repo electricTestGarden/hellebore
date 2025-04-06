@@ -8,22 +8,22 @@ import { isFirstComic, isLastComic, getNextComic, getPrevComic, getLastComic } f
 import { getFirstComic } from "../utils";
 
 const { comic } = Astro.props;
-const base = import.meta.env.BASE;
+const base = import.meta.env.BASE ? `${import.meta.env.BASE}/` : "";
 
 const isFirst = await isFirstComic(comic.slug);
 const isLast = await isLastComic(comic.slug); 
 
 const firstClasses = isFirst ? "first disabled" : "first";
-const firstHref = isFirst ? "" : `${base}/comic/` + (await getFirstComic())?.data.slug;
+const firstHref = isFirst ? "" : `${base}comic/` + (await getFirstComic())?.data.slug;
 
 const prevClasses = isFirst ? "prev disabled" : "prev";
-const prevHref = isFirst ? "" : `${base}/comic/` + (await getPrevComic(comic.slug))?.data.slug;
+const prevHref = isFirst ? "" : `${base}comic/` + (await getPrevComic(comic.slug))?.data.slug;
 
 const nextClasses = isLast ? "next disabled" : "next";  
-const nextHref = isLast ? "" : `${base}/comic/` + (await getNextComic(comic.slug))?.data.slug;
+const nextHref = isLast ? "" : `${base}comic/` + (await getNextComic(comic.slug))?.data.slug;
 
 const latestClasses = isLast ? "latest disabled" : "latest";
-const latestHref = isLast ? "" : `${base}/comic/` + (await getLastComic())?.data.slug;
+const latestHref = isLast ? "" : `${base}comic/` + (await getLastComic())?.data.slug;
 ---
 <section class="navigation" title="Previous Comic">
     <div class="navigation-wrapper" title="Next Comic">
