@@ -6,12 +6,15 @@ import { comicImageBasePath, isLastComic, getNextComic } from "../utils";
 
 const { frontmatter, comicOverride } = Astro.props;
 const comic = comicOverride ? comicOverride : frontmatter; 
-const base = import.meta.env.BASE;
+const base = `${import.meta.env.BASE}/` || "";
 
 const comicSrc = comicImageBasePath + comic.imageFile;
 const isLast = await isLastComic(comic.slug); 
 const nextComic = await getNextComic(comic.slug);
-const nextHref = isLast ? "" : `${base}/comic/` + nextComic?.data.slug;
+const nextHref = isLast ? "" : `${base}comic/` + nextComic?.data.slug;
+
+console.log(comicImageBasePath)
+console.log(comicSrc);
 ---
 
 <BaseLayout pageTitle={comic.title} comic={comic}>
